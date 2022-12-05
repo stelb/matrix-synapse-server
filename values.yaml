@@ -1,0 +1,16 @@
+replicaCount: 1
+
+matrix-synapse:
+  serverName: stelb.cloud
+  wellknown.enabled: true
+
+  ingress:
+    enabled: true
+    className: traefik
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    tls:
+    - hosts:
+      - stelb.cloud
+      secretName: stelb-cloud-tls-prod
